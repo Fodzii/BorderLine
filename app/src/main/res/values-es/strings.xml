@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BorderLine</string>
+    <string name="Game">Juego</string>
+    <string name="Option">Option</string>
+    <string name="i_apos_m_a_text">Soy un texto</string>
+    <string name="Speed">Velocidad</string>
+</resources>
