@@ -6,7 +6,7 @@ PROJET BORDERLINE
 
 I-AUTEURS : 
 
-Fabien BLANCHETON (Alternant)
+Fabien BLANCHETON (Alternant) 
 Alaric QUACHERO (Alternant)
 
 ----------------------------------------------------------------------
