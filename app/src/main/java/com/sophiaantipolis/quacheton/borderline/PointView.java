@@ -2,6 +2,7 @@ package com.sophiaantipolis.quacheton.borderline;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -14,8 +15,9 @@ import android.view.View;
 public class PointView extends View {
 
     private int taille = 80;
-    private int vitesse;
-    int nombreOccurence = 30;
+    private int vitesse = 1;
+    int nombreOccurence = 5;
+    String couleur = "0xFF00FF";
 
     private Paint paint;
     private int i;
@@ -51,16 +53,19 @@ public class PointView extends View {
 
     public void init() {
         paint = new Paint();
+        paint.setColor(Color.parseColor(couleur));
         removeCallbacks(animator);
         post(animator);
 
         for(i=0; i < nombreOccurence; i++) {
             tableauPoint[i] = new Point(random(taille + 1, 984 - taille), random(taille + 1, 1440 - taille));
+            tableauPoint[i].setDx(vitesse);
+            tableauPoint[i].setDy(vitesse);
         }
     }
 
     public int random(int min, int max){
-       return min + (int)(Math.random() * max);
+       return (int) (Math.random() * (max - min)) + min;
     }
 
     public boolean colisionBordX(int i){
@@ -83,10 +88,6 @@ public class PointView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        //test.setColorFilter(Color.BLUE, PorterDuff.Mode.ADD);*/
-        /*for(i = 0; i<4; i++) {
-            canvas.drawCircle(tab[i].getX(), tab[i].getY(), taille, paint);
-        }*/
         for(i=0; i < nombreOccurence; i++) {
             canvas.drawCircle(tableauPoint[i].getX(), tableauPoint[i].getY(), taille, paint);
         }
@@ -102,8 +103,8 @@ public class PointView extends View {
                 tableauPoint[i].setDy(tableauPoint[i].getDy() * - 1);
             }
 
-            tableauPoint[i].setX(tableauPoint[i].getX() + vitesse * tableauPoint[i].getDx());
-            tableauPoint[i].setY(tableauPoint[i].getY() + vitesse * tableauPoint[i].getDy());
+            tableauPoint[i].setX(tableauPoint[i].getX() + tableauPoint[i].getDx());
+            tableauPoint[i].setY(tableauPoint[i].getY() + tableauPoint[i].getDy());
         }
     }
 
