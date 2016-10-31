@@ -19,6 +19,10 @@ public class GameFragment extends Fragment {
                 /*----INFLATER DU LAYOUT text_fragment----*/
         view = inflater.inflate(R.layout.game_fragment, container, false);
 
+        PointView point = (PointView) view.findViewById(R.id.pointView);
+        point.setVitesse(15);
+        point.setTaille(80);
+
         return view;
     }
 

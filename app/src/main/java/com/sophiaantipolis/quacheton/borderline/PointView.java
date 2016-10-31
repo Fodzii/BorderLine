@@ -1,16 +1,11 @@
 package com.sophiaantipolis.quacheton.borderline;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
-import android.view.animation.AnimationUtils;
 
 /**
  * Created by Alaric on 06/10/2016.
@@ -18,12 +13,31 @@ import android.view.animation.AnimationUtils;
 
 public class PointView extends View {
 
-    Paint paint;
-    Drawable image;
-    Bitmap bitmap;
-    int taille = 50;
-    int xRocket = 60;
-    int yRocket = 60;
+    private int taille = 80;
+    private int vitesse;
+    int nombreOccurence = 30;
+
+    private Paint paint;
+    private int i;
+
+    private Point[] tableauPoint = new Point[nombreOccurence];
+
+
+    public int getVitesse() {
+        return vitesse;
+    }
+
+    public void setVitesse(int uneVitesse) {
+        this.vitesse = uneVitesse;
+    }
+
+    public int getTaille() {
+        return taille;
+    }
+
+    public void setTaille(int uneTaille) {
+        this.taille = uneTaille;
+    }
 
     public PointView(Context context) {
         super(context);
@@ -40,10 +54,17 @@ public class PointView extends View {
         removeCallbacks(animator);
         post(animator);
 
+        for(i=0; i < nombreOccurence; i++) {
+            tableauPoint[i] = new Point(random(taille + 1, 984 - taille), random(taille + 1, 1440 - taille));
+        }
     }
 
-    public boolean colisionBordX(){
-        if(xRocket - taille <= 0 || xRocket + taille >= getWidth()){
+    public int random(int min, int max){
+       return min + (int)(Math.random() * max);
+    }
+
+    public boolean colisionBordX(int i){
+        if(tableauPoint[i].getX() - taille <= 0 || tableauPoint[i].getX() + taille >= getWidth()){
             return true;
         }
         else{
@@ -51,8 +72,8 @@ public class PointView extends View {
         }
     }
 
-    public boolean colisionBordY(){
-        if(yRocket - taille <= 0 || yRocket + taille >= getHeight()){
+    public boolean colisionBordY(int i){
+        if(tableauPoint[i].getY() - taille <= 0 || tableauPoint[i].getY() + taille >= getHeight()){
             return true;
         }
         else{
@@ -63,26 +84,35 @@ public class PointView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         //test.setColorFilter(Color.BLUE, PorterDuff.Mode.ADD);*/
-        canvas.drawCircle(xRocket, yRocket, taille, paint);
+        /*for(i = 0; i<4; i++) {
+            canvas.drawCircle(tab[i].getX(), tab[i].getY(), taille, paint);
+        }*/
+        for(i=0; i < nombreOccurence; i++) {
+            canvas.drawCircle(tableauPoint[i].getX(), tableauPoint[i].getY(), taille, paint);
+        }
     }
 
-    public void update() {
-        if (colisionBordX()==false && colisionBordY()==false) {
 
+    public void update() {
+        for(i = 0; i<nombreOccurence; i++) {
+            if (colisionBordX(i)) {
+                tableauPoint[i].setDx(tableauPoint[i].getDx() * - 1);
+            }
+            if (colisionBordY(i)) {
+                tableauPoint[i].setDy(tableauPoint[i].getDy() * - 1);
+            }
+
+            tableauPoint[i].setX(tableauPoint[i].getX() + vitesse * tableauPoint[i].getDx());
+            tableauPoint[i].setY(tableauPoint[i].getY() + vitesse * tableauPoint[i].getDy());
         }
-        xRocket += 5;
-        yRocket += 5;
     }
 
     private Runnable animator = new Runnable() {
         @Override
         public void run() {
-            long now = AnimationUtils.currentAnimationTimeMillis();
-                update();
+            update();
             invalidate();
-            if (!false) {
-                postDelayed(this, 15);
-            }
+            postDelayed(this, 15);
         }};
 }
 
