@@ -5,4 +5,6 @@
     <string name="Option">Option</string>
     <string name="i_apos_m_a_text">Soy un texto</string>
     <string name="Speed">Velocidad</string>
+    <string name="Size">Tamaño</string>
+    <string name="NbOccur">Número de puntos</string>
 </resources>

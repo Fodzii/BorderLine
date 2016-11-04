@@ -14,10 +14,10 @@ import android.view.View;
 
 public class PointView extends View {
 
-    private int taille = 80;
+    private int taille;
     private int vitesse = 1;
     int nombreOccurence = 5;
-    String couleur = "0xFF00FF";
+    String couleur = "#000000";
 
     private Paint paint;
     private int i;
@@ -37,8 +37,24 @@ public class PointView extends View {
         return taille;
     }
 
+    public int getNombreOccurence() {
+        return nombreOccurence;
+    }
+
+    public void setNombreOccurence(int unNbOccurence){
+        nombreOccurence = unNbOccurence;
+    }
+
     public void setTaille(int uneTaille) {
         this.taille = uneTaille;
+    }
+
+    public String getCouleur() {
+        return couleur;
+    }
+
+    public void setCouleur(String uneCouleur) {
+        this.couleur = uneCouleur;
     }
 
     public PointView(Context context) {

@@ -5,4 +5,6 @@
     <string name="Game">Jeux</string>
     <string name="i_apos_m_a_text">Je suis un texte</string>
     <string name="Speed">Vitesse</string>
+    <string name="Size">Taille</string>
+    <string name="NbOccur">Nombre de points</string>
 </resources>
