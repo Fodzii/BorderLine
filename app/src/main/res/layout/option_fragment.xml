@@ -1,26 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/speedText"
-        android:text="@string/Speed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"/>
+    android:layout_height="match_parent"
+    android:weightSum="1">
 
     <SeekBar
         android:id="@+id/speedBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/speedText"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="Valider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonValider"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/sizeText"
         android:text="@string/Size"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"/>
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_below="@+id/speedBar"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/buttonColor"
+        style="@style/Widget.AppCompat.Button"
+        android:background="@drawable/button_round"
+        android:layout_marginBottom="45dp"
+        android:layout_above="@+id/buttonValider"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/speedText"
+        android:text="@string/Speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/colorText" />
 
     <EditText
         android:layout_width="match_parent"
@@ -28,23 +54,36 @@
         android:inputType="number"
         android:maxLength="2"
         android:ems="10"
-        android:id="@+id/SizeNumberText" />
+        android:id="@+id/SizeNumberText"
+        android:layout_alignBaseline="@+id/sizeText"
+        android:layout_alignBottom="@+id/sizeText"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/sizeText" />
+
     <TextView
         android:id="@+id/nbOccurText"
         android:text="@string/NbOccur"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"/>
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_below="@+id/SizeNumberText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp" />
 
     <NumberPicker
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/nbOccurNumberPicker" />
+        android:layout_height="100dp"
+        android:id="@+id/nbOccurNumberPicker"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
 
-    <Button
-        android:text="Valider"
-        android:layout_width="match_parent"
+    <TextView
+        android:text="@string/Color"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonValider" />
+        android:id="@+id/colorText"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_above="@+id/buttonColor"
+        android:layout_alignStart="@+id/buttonColor" />
 
-</LinearLayout>
+</RelativeLayout>

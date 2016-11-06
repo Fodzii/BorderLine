@@ -4,7 +4,8 @@
     <string name="Game">Game</string>
     <string name="Option">Option</string>
     <string name="i_apos_m_a_text">I\'m a text</string>
-    <string name="Speed">Speed</string>
-    <string name="Size">Size</string>
-    <string name="NbOccur">Number of points</string>
+    <string name="Speed">Speed:</string>
+    <string name="Size">Size:</string>
+    <string name="NbOccur">Number of points:</string>
+    <string name="Color">Color:</string>
 </resources>

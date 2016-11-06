@@ -11,5 +11,6 @@
     <string name="Speed">Speed</string>
     <string name="Size">Size</string>
     <string name="NbOccur">Number of points</string>
+    <string name="Color">Color</string>
 
 </resources>
