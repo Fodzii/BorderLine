@@ -18,6 +18,8 @@ public class PointView extends View {
     private int vitesse = 1;
     int nombreOccurence = 5;
     String couleur = "#000000";
+    int hauteur;
+    int largeur;
 
     private Paint paint;
     private int i;
@@ -57,6 +59,13 @@ public class PointView extends View {
         this.couleur = uneCouleur;
     }
 
+    public void setHauteur(int hauteur) {
+        this.hauteur = hauteur;
+    }
+    public void setLargeur(int largeur) {
+        this.largeur = largeur;
+    }
+
     public PointView(Context context) {
         super(context);
         init();
@@ -74,7 +83,7 @@ public class PointView extends View {
         post(animator);
 
         for(i=0; i < nombreOccurence; i++) {
-            tableauPoint[i] = new Point(random(taille + 1, 984 - taille), random(taille + 1, 1440 - taille));
+            tableauPoint[i] = new Point(random(taille + 1, largeur - taille), random(taille + 1, hauteur - taille));
             tableauPoint[i].setDx(vitesse);
             tableauPoint[i].setDy(vitesse);
         }
@@ -85,21 +94,11 @@ public class PointView extends View {
     }
 
     public boolean colisionBordX(int i){
-        if(tableauPoint[i].getX() - taille <= 0 || tableauPoint[i].getX() + taille >= getWidth()){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return tableauPoint[i].getX() - taille <= 0 || tableauPoint[i].getX() + taille >= getWidth();
     }
 
     public boolean colisionBordY(int i){
-        if(tableauPoint[i].getY() - taille <= 0 || tableauPoint[i].getY() + taille >= getHeight()){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return tableauPoint[i].getY() - taille <= 0 || tableauPoint[i].getY() + taille >= getHeight();
     }
 
     @Override

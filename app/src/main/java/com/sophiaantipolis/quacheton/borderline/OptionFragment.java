@@ -71,8 +71,6 @@ public class OptionFragment extends Fragment {
         speedBar.setProgress(sharedpreferences.getInt("vitesse", 1));
         bgShape.setColor(Color.parseColor(sharedpreferences.getString("couleur", "#FFFFFF")));
 
-
-
         /*----Listeners----*/
         speedBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
@@ -131,8 +129,6 @@ public class OptionFragment extends Fragment {
                         .show();
             }
         });
-
-
         return view;
     }
 
@@ -145,5 +141,4 @@ public class OptionFragment extends Fragment {
             throw new ClassCastException(activity.toString() + " must implement OnActionListener");
         }
     }
-
 }

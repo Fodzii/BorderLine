@@ -2,6 +2,7 @@ package com.sophiaantipolis.quacheton.borderline;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ public class GameFragment extends Fragment {
     View view;
     PointView point;
     SharedPreferences sharedpreferences;
+    Canvas canvas;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -50,6 +52,8 @@ public class GameFragment extends Fragment {
         point.setNombreOccurence(sharedpreferences.getInt("nbPoint", 1));
         point.setVitesse(sharedpreferences.getInt("vitesse", 1));
         point.setCouleur(sharedpreferences.getString("couleur", "#000000"));
+        point.setLargeur(point.getWidth());
+        point.setHauteur(point.getHeight());
         point.init();
     }
 }

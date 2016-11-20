@@ -45,8 +45,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_alignParentTop="true"
-        android:layout_alignEnd="@+id/colorText" />
+        android:layout_alignEnd="@+id/colorText"
+        android:layout_alignParentTop="true" />
 
     <EditText
         android:layout_width="match_parent"
@@ -60,16 +60,6 @@
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/sizeText" />
 
-    <TextView
-        android:id="@+id/nbOccurText"
-        android:text="@string/NbOccur"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_below="@+id/SizeNumberText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp" />
-
     <NumberPicker
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -78,12 +68,22 @@
         android:layout_alignParentStart="true" />
 
     <TextView
+        android:id="@+id/nbOccurText"
+        android:text="@string/NbOccur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginTop="38dp"
+        android:layout_below="@+id/SizeNumberText"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
         android:text="@string/Color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/colorText"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_above="@+id/buttonColor"
-        android:layout_alignStart="@+id/buttonColor" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
