@@ -8,6 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+
+
 public class MainActivity extends AppCompatActivity implements ActionBar.TabListener, OptionFragment.OnActionListener{
 
     private PagerAdapter mExamplePagerAdapter;
@@ -27,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         /*----CREATION DES ONGLETS DE NAVIGATION AVEC L'ACTION BAR----*/
         actionBar.addTab(actionBar.newTab().setText(getResources().getString(R.string.Game)).setTabListener(this));
         actionBar.addTab(actionBar.newTab().setText(getResources().getString(R.string.Option)).setTabListener(this));
+        actionBar.addTab(actionBar.newTab().setText(getResources().getString(R.string.Score)).setTabListener(this));
 
 
         mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
@@ -39,6 +44,12 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
 
     /*----AFFICHAGE DU MODE DE NAGIVATION SOUS FORME D'ONGLET----*/
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+    /*----Realm----*/
+        Realm.init(this);
+        RealmConfiguration realmConfig = new RealmConfiguration.Builder().build();
+        Realm.deleteRealm(realmConfig); // Delete Realm between app restarts.
+        Realm.setDefaultConfiguration(realmConfig);
     }
 
     /*----AFFICHAGE DU CONTENU LORS DE L'APPUI SUR UN ONGLET----*/
@@ -49,7 +60,6 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
 
     @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
-
     }
 
     @Override

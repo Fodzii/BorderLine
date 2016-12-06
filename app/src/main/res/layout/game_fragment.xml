@@ -10,4 +10,11 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true" />
 
+    <com.sophiaantipolis.quacheton.borderline.IntrusView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/intrusView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>

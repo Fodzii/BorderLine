@@ -39,6 +39,7 @@ public class OptionFragment extends Fragment {
     String stringTailleDuPoint;
     GradientDrawable bgShape;
 
+
     public interface OnActionListener  {
         void OnAction(int position);
     }
@@ -98,6 +99,8 @@ public class OptionFragment extends Fragment {
                 editor.commit();
             }
         });
+
+
 
         buttonColor.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

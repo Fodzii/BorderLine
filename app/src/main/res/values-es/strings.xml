@@ -8,4 +8,5 @@
     <string name="Size">Tamaño:</string>
     <string name="NbOccur">Número de puntos:</string>
     <string name="Color">Colores:</string>
+    <string name="Score">Score</string>
 </resources>

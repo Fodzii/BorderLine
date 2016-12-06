@@ -26,6 +26,9 @@ public class ExamplePagerAdapter extends FragmentStatePagerAdapter {
             case 1:
                 fragment = new  OptionFragment();
                 break;
+            case 2:
+                fragment = new ScoreFragment();
+                break;
             default:
                 break;
         }
@@ -36,7 +39,7 @@ public class ExamplePagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public int getCount() {
         //le nombre d’onglet
-        return 2;
+        return 3;
     }
 
     @Override

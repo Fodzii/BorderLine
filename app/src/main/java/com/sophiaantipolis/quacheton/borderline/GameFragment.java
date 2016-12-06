@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 /**
  * Created by Blfab on 26/09/2016.
@@ -18,6 +17,7 @@ public class GameFragment extends Fragment {
     public static final String MesPrefs = "MesPreferences";
     View view;
     PointView point;
+    IntrusView intrus;
     SharedPreferences sharedpreferences;
     Canvas canvas;
 
@@ -29,6 +29,7 @@ public class GameFragment extends Fragment {
         sharedpreferences = getActivity().getSharedPreferences(MesPrefs, Context.MODE_PRIVATE);
 
         point = (PointView) view.findViewById(R.id.pointView);
+        intrus = (IntrusView) view.findViewById(R.id.intrusView);
 
         launch();
 
@@ -55,6 +56,13 @@ public class GameFragment extends Fragment {
         point.setLargeur(point.getWidth());
         point.setHauteur(point.getHeight());
         point.init();
+
+        intrus.setTaille(sharedpreferences.getInt("taille", 20 + 10));
+        intrus.setVitesse(sharedpreferences.getInt("vitesse", 1));
+        //intrus.setCouleur(sharedpreferences.getString("couleur", "#000000"));
+        intrus.setLargeur(point.getWidth());
+        intrus.setHauteur(point.getHeight());
+        intrus.init();
     }
 }
 
