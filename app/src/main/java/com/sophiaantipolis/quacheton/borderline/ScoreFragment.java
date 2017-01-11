@@ -31,7 +31,7 @@ public class ScoreFragment extends Fragment {
         RealmResults<ScoreData> result1 = query.findAll();
 
         for (ScoreData unScore:result1) {
-            textScore.append(Integer.toString(unScore.getScore()));
+            textScore.append("Score : " + Integer.toString(unScore.getScore()) + "\n");
         }
         return view;
     }
