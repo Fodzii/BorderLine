@@ -33,16 +33,10 @@ public class OptionFragment extends Fragment {
     EditText tailleDuPoint;
     Button buttonValider;
     Button buttonColor;
-    OnActionListener mListener;
     SharedPreferences sharedpreferences;
     SharedPreferences.Editor editor;
     String stringTailleDuPoint;
     GradientDrawable bgShape;
-
-
-    public interface OnActionListener  {
-        void OnAction(int position);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,9 +48,7 @@ public class OptionFragment extends Fragment {
         sharedpreferences = getActivity().getSharedPreferences(MesPrefs, Context.MODE_PRIVATE);
 
         speedBar = (SeekBar) view.findViewById(R.id.speedBar);
-
         tailleDuPoint = (EditText) view.findViewById(R.id.SizeNumberText);
-
         nbDePoints = (NumberPicker) view.findViewById(R.id.nbOccurNumberPicker);
         nbDePoints.setMaxValue(5);
         nbDePoints.setMinValue(1);
@@ -100,8 +92,6 @@ public class OptionFragment extends Fragment {
             }
         });
 
-
-
         buttonColor.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 ColorPickerDialogBuilder
@@ -133,15 +123,5 @@ public class OptionFragment extends Fragment {
             }
         });
         return view;
-    }
-
-    @Override
-     public void onAttach (Activity activity){
-        super.onAttach(activity);
-        try {
-            mListener = (OnActionListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString() + " must implement OnActionListener");
-        }
     }
 }

@@ -18,12 +18,11 @@ import io.realm.RealmResults;
  */
 
 public class ScoreFragment extends Fragment {
-    View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
                 /*----INFLATER DU LAYOUT text_fragment----*/
-        view = inflater.inflate(R.layout.score_fragment, container, false);
+        View view = inflater.inflate(R.layout.score_fragment, container, false);
         TextView textScore = (TextView) view.findViewById(R.id.editTextScore);
 
         Realm realm = Realm.getDefaultInstance();

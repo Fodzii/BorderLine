@@ -23,14 +23,12 @@ public class GameFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-                /*----INFLATER DU LAYOUT text_fragment----*/
+
         view = inflater.inflate(R.layout.game_fragment, container, false);
 
         sharedpreferences = getActivity().getSharedPreferences(MesPrefs, Context.MODE_PRIVATE);
-
         point = (PointView) view.findViewById(R.id.pointView);
         intrus = (IntrusView) view.findViewById(R.id.intrusView);
-
         launch();
 
         return view;
